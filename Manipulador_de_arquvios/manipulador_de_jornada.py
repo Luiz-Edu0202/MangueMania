@@ -1,6 +1,6 @@
 import os
-from Manipulador_de_arquvios import verificacoes as ver
-from Manipulador_de_arquvios import manipulador_de_salas as salas
+import verificacoes as ver
+import manipulador_de_salas as salas
 
 zumbi = 'Jornada_Nacao_Zumbi.txt'
 chico = 'Jornada_Chico.txt'
@@ -45,3 +45,5 @@ def escolhedor_de_jornadas():
             print('\033[32mJornada Selecionada!\033[m')
             return jornadas_nomes[escolha-1]
 
+
+leitor_das_perguntas_objetivas_por_jornada(chico)

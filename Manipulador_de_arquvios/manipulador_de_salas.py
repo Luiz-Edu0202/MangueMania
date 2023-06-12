@@ -60,8 +60,8 @@ def criador_de_chave_da_sala():
 def adicionar_aluno(index,nome,email,codigo):
     for sala in os.scandir('Data_Bases/Salas/'):
         if codigo == sala.name.split('-')[0]:
-            nome = sala.name
-    path = f'Data_Bases/Salas/{nome}'
+            nome_arq = sala.name
+    path = f'Data_Bases/Salas/{nome_arq}'
     try:
         with open(path,'a', encoding='utf-8',newline='\n') as sala:
             sala.write(f'{index},{nome},{email},0,0,')
@@ -69,4 +69,4 @@ def adicionar_aluno(index,nome,email,codigo):
         print('\33[31mErro ao carregar arquivo de banco de salas,\nSe o problema persistir reinicie o programa e contate os devs\33[m')
 
 
-#criacao_de_sala(index_professor=2,jornada='Jornada_Chico.txt')    
+#criacao_de_sala(index_professor=1,jornada='Jornada_Chico.txt')    

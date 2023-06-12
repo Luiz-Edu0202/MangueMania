@@ -23,7 +23,7 @@ while True:
                 cadastro.cadastro_professor('cadastros_professores.csv')
                 sleep(1)
             elif resposta2 == 2:
-                cadastro.cadastro_professor('cadastros_alunos.csv')
+                cadastro.cadastro_aluno('cadastros_alunos.csv')
                 sleep(1)
             elif resposta2 == 3:
                 break
@@ -37,7 +37,7 @@ while True:
                 login.login('cadastros_professores.csv',login.ver.Bancos.CADASTRO_PROFESSOR)
             elif resposta == 2:
                 login.login('cadastros_alunos.csv',login.ver.Bancos.CADASTRO_ALUNO)
-            elif resposta == 4:
+            elif resposta == 3:
                 print('\033[32mVoltando...\033[m')
                 break
             else:

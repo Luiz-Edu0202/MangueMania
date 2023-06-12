@@ -78,11 +78,11 @@ def verificador_de_nome_valido(msg):
 
 def ler_ultimo_index(path):
     memoria_csv = []
-    with open(path,'r',encoding='utf-8', newline='') as file:
+    with open(path,'r',encoding='utf-8', newline='\n') as file:
         csvreader = csv.reader(file)
         for linha in csvreader:
             memoria_csv.append(linha)
-    if len(memoria_csv) > 1:
+    if len(memoria_csv) > 2:
         ultima_linha = memoria_csv[len(memoria_csv)-1]
         return (int(ultima_linha[0]))
     else:

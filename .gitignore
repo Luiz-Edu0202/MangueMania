@@ -158,5 +158,4 @@ cython_debug/
 #.idea/
 
 #Testing types:
-*.csv
 __pycache__/
