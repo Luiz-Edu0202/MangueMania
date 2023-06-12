@@ -2,11 +2,11 @@
 
 ## **Comandos importantes dependencias:**
 - python<version> -m venv venv
-    -Cria o ambiente virtual
+    - Cria o ambiente virtual
 
 - env/Scripts/activate.bat //In CMD
 - env/Scripts/Activate.ps1 //In Powershel
-    -Ativa o ambiente virtual
+    - Ativa o ambiente virtual
 
 - pip install -r requirements.txt
     - Instala as dependencias 
