@@ -1,5 +1,11 @@
 # **MangueMania**
 
+## **Comandos importantes dependencias:**
+- pip install -r requirements.txt
+    - Instala as dependencias 
+
+- pip freeze > requirements.txt
+    - Atualiza as dependencias 
 ## **Organização de Repositório:**
 
 ![GitFlow](/Doc/pasted_image_0.png)
@@ -56,3 +62,12 @@ Será exibido um ranking geral da sala que todos os alunos conseguirão acessar,
 - ***Re*** definição das principais funções da solução em Python
 
 - ~~Representação da Solução em Fluxograma e Descrição Narrativa~~
+
+## **Referências:**
+
+- https://pt.stackoverflow.com/questions/242620/como-saber-quais-as-bibliotecas-estão-sendo-usadas-em-um-projeto-python
+- https://libraries.io/pypi/PySimpleGUIQt
+- https://realpython.com/pysimplegui-python/#integrating-matplotlib-with-pysimplegui
+- https://www.javatpoint.com/password-validation-in-python
+- https://github.com/dwolfhub/zxcvbn-python/tree/master
+- 
