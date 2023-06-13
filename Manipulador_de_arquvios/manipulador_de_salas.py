@@ -1,9 +1,16 @@
 import os
 import random
 import array
+import time
 
 
 def encontrar_sala_por_codigo(codigo):
+    for sala in os.scandir('Data_Bases/Salas/'):
+        if codigo == sala.name.split('-')[0]:
+            return sala.name
+
+
+def encontrar_ranking_por_codigo(codigo):
     for sala in os.scandir('Data_Bases/Salas/'):
         if codigo == sala.name.split('-')[0]:
             nome = sala.name
@@ -15,13 +22,13 @@ def encontrar_sala_por_codigo(codigo):
         print('\33[31mErro ao carregar arquivo de banco de salas,\nSe o problema persistir reinicie o programa e contate os devs\33[m')
 
 
-def criacao_de_sala(index_professor,jornada):
+def criacao_de_sala(index_professor,jornada,tamanho):
     codigo = criador_de_chave_da_sala()
-    nome = f'{codigo}-{jornada}-Prof-{index_professor}.csv'
+    nome = f'{codigo}-{jornada}-{tamanho}-Prof-{index_professor}.csv'
     diretorio = f'Data_Bases/Salas/{nome}'
     try:
         with open(diretorio,'x', encoding='utf-8') as sala:
-            sala.write('index,nome,email,ultima pergunta,pontuação,')
+            sala.write('index,nome,email,ultima pergunta,pontuação,\n')
         print('\33[32mSala Criada com Sucesso!\33[m')
         print(f'\33[32mCódigo da sala:{codigo}\33[m')
         input('Digite algo para continuar!')
@@ -29,7 +36,6 @@ def criacao_de_sala(index_professor,jornada):
         
     except EOFError:
         print('\33[31mErro ao carregar arquivo de banco de salas,\nSe o problema persistir reinicie o programa e contate os devs\33[m')
-
 
 
 def criador_de_chave_da_sala():
@@ -69,4 +75,4 @@ def adicionar_aluno(index,nome,email,codigo):
         print('\33[31mErro ao carregar arquivo de banco de salas,\nSe o problema persistir reinicie o programa e contate os devs\33[m')
 
 
-#criacao_de_sala(index_professor=1,jornada='Jornada_Chico.txt')    
+#criacao_de_sala(index_professor=1,jornada='Jornada_Chico.txt',tamanho='CURTA')    

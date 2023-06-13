@@ -17,11 +17,12 @@ def login(arq,Banco:ver.Bancos):
         for cadastro in cadastros:
             if cadastro[2] == email.lower() and cadastro[3] == senha:
                 print('\n\033[32mLogin feito com sucesso!\033[m')
-                return cadastro[0]
+                return cadastro
         else:
             print('\n\033[31mLogin ou senha Inválidos.\033[m')
-            print(cadastro)
             sleep(2)
             os.system('cls')
+
+    
 
 #print(login('cadastros_alunos.csv',ver.Bancos.CADASTRO_ALUNO))

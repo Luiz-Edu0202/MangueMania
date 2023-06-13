@@ -1,15 +1,18 @@
 import os
 from time import sleep
 
-from Formatacao.formatacao_menu import *
+from Manipulador_de_arquvios import manipulador_de_DB
+from Manipulador_de_arquvios import manipulador_de_jornada
+from Manipulador_de_arquvios import manipulador_de_salas
 from Manipulador_de_arquvios import cadastro
 from Manipulador_de_arquvios import login
+from Formatacao.formatacao_menu import *
 
 os.system("cls")
 
 
 while True:
-    sleep(1)
+    manipulador_de_DB.inicializador_de_data_bases()
     os.system('cls')
     cabeçalho('MENU')
     resposta = menu(['Cadatro','Login','Encerrar'])
@@ -34,9 +37,29 @@ while True:
             print(linha())
             resposta = menu(['Professor', 'Aluno', 'Voltar'])
             if resposta == 1:
-                login.login('cadastros_professores.csv',login.ver.Bancos.CADASTRO_PROFESSOR)
+                perfil = login.login('cadastros_professores.csv',login.ver.Bancos.CADASTRO_PROFESSOR)
+                while True:
+                    os.system("cls")
+                    resposta = menu(['Criar Sala', 'Lista das Suas Salas', 'Voltar'])
+                    if resposta == 1:
+                        jornada = manipulador_de_jornada.escolhedor_de_jornadas()
+                        tamanho = manipulador_de_jornada.escolhedor_de_tamanho()
+                        manipulador_de_salas.criacao_de_sala(perfil[0],jornada,tamanho)
+
+                    elif resposta == 2:
+                        pass
+                    elif resposta == 3:
+                        print('\033[32mVoltando...\033[m')
+                        break
+                    else:
+                        print('\033[31mERRO: por favor, digite uma das opções.\033[m')
+                        sleep(1)
+
             elif resposta == 2:
-                login.login('cadastros_alunos.csv',login.ver.Bancos.CADASTRO_ALUNO)
+                perfil = login.login('cadastros_alunos.csv',login.ver.Bancos.CADASTRO_ALUNO)
+                index_aluno = perfil[0]
+                sala = perfil[4]
+                manipulador_de_jornada.jogar_jornada(sala=sala,index_aluno=index_aluno)
             elif resposta == 3:
                 print('\033[32mVoltando...\033[m')
                 break
